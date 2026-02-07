@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<body style="background:#000;color:#0f0;font-family:monospace;padding:20px;">
+<h2>Listeners</h2>
+<div id="list"></div>
+<hr>
+<h3>Add Listener</h3>
+<input id="addr" placeholder="0.0.0.0:4444">
+<button onclick="add()">Add</button>
+<script>
+function load() {
+    fetch('/api/listeners')
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('list').innerHTML = JSON.stringify(data, null, 2);
+    });
+}
+function add() {
+    const addr = document.getElementById('addr').value;
+    fetch('/api/listeners', {
+        method: 'POST',
+        body: JSON.stringify({id: Date.now().toString(), address: addr, active: true}),
+        headers: {'Content-Type': 'application/json'}
+    }).then(() => load());
+}
+load();
+setInterval(load, 2000);
+</script>
+</body>
+</html>
