@@ -14,7 +14,7 @@ using netcat and doing everything manually like caveman , i decided to just writ
 this c2 features :
 -
 
--server writen in go:
+server writen in go:
 -
 - handling listeners / sessions
 - basic frontend for managment
@@ -22,7 +22,7 @@ this c2 features :
 
 -
 
--agent writen in C and go :
+agent writen in C and go :
 -
 C :  for tools injection using process hollowing [base address relocation]
 
@@ -31,7 +31,7 @@ go : for uploading / beaconing
 -
 
 
--needless to say this is still in early stages but it serve as malluable/modular C2 skeleton to improve upon 
+needless to say this is still in early stages but it serve as malluable/modular C2 skeleton to improve upon 
 -
 -
 -
