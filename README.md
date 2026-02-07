@@ -22,7 +22,7 @@ go for uploading / beaconing
 
 
 
-needless to say this still in early stages but it serve as malluable/modular skeleton to improve upon 
+needless to say this is still in early stages but it serve as malluable/modular C2 skeleton to improve upon 
 
 
 
