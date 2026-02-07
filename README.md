@@ -28,6 +28,7 @@ C :  for tools injection using process hollowing [base address relocation]
 
 go : for uploading / beaconing
 
+-
 
 
 -needless to say this is still in early stages but it serve as malluable/modular C2 skeleton to improve upon 
