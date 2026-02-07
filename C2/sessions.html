@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#000;color:#0f0;font-family:monospace;padding:20px;">
+<h2>Active Sessions</h2>
+<pre id="sessions"></pre>
+<script>
+function load() {
+    fetch('/api/sessions')
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('sessions').innerHTML = JSON.stringify(data, null, 2);
+    });
+}
+load();
+setInterval(load, 2000);
+</script>
+</body>
+</html>
