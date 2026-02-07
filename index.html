@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C2 Interface</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: #2d2131;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+            --border-color: #30363d;
+            --input-bg: #0d1117;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 2000px;
+            background: var(--panel-bg);
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        select, input[type="text"], input[list] {
+            width: 100%;
+            padding: 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-family: monospace;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input:focus {
+            border-color: var(--accent-color);
+        }
+
+        button {
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: var(--text-dim);
+            margin-top: 10px;
+        }
+
+        pre {
+            background: #000000a2;
+            color: #b93f3fff;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+
+            height: 600px;          
+            overflow-y: auto;        
+            overflow-x: auto;        
+            white-space: pre-wrap;  
+            word-wrap: break-word;   
+
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>C2 Interface</h2>
+    
+
+<form id="f">
+    <select id="mode" style="display: none;">
+        <option value="control">control</option>
+        <option value="netcat">netcat</option>
+    </select>
+
+    <div class="form-group">
+        <label>Mode Selection</label>
+        <div style="display: flex; gap: 10px;">
+            <button type="submit" onclick="document.getElementById('mode').value='control'" style="background: rgba(0, 212, 255, 0.1); border: 2px solid #00d4ff; color: #00d4ff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);">Tools</button>
+            <button type="submit" onclick="document.getElementById('mode').value='netcat'" style="background: rgba(221, 68, 226, 0.13); border: 2px solid #00d4ff; color: #00d4ff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);">Netcat</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Tool Selection</label>
+        <select name="tool">
+            <option value="Rubeus.exe">Rubeus.exe</option>
+            <option value="SharpSuccessor.exe">SharpSuccessor.exe</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Arguments</label>
+        <input type="text" name="cmd" placeholder="args">
+    </div>
+    
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <h3>Output Log:</h3>
+    <pre id="out">Waiting for interaction...</pre>
+</div>
+
+<script>
+    f.onsubmit = async (e)=>{
+        e.preventDefault();
+
+        const mode = document.getElementById("mode").value;
+        if(mode === "netcat")
+        {
+            window.location.href = "/netcat";
+            return;
+        }
+
+        await fetch("/update-var",{method:"POST",body:new FormData(f)});
+    };
+
+    setInterval(async ()=>
+    {
+        const mode = document.getElementById("mode").value;
+
+        if(mode === "control")
+        {
+            out.innerText = await (await fetch("/get-var")).text();
+        }
+    },1000);
+</script>
+
+</body>
+</html>
