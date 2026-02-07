@@ -16,7 +16,7 @@ server writen in go
 
 agent writen in C and go 
 
-C for for tools injection using process hollowing [base address relocation]
+C for tools injection using process hollowing [base address relocation]
 
 go for uploading beaconing
 
