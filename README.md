@@ -1,7 +1,7 @@
 # C2_cpts
 a minimal C2 implementation for taking the CPTS exam 
 
-we often hear about the latest shiny new C2 framework weather it is covnant mythic or havoc and are impressed with the mind dazling amount of features , 
+we often hear about the latest shiny new C2 framework weather it is covnant mythic or havoc and are impressed with the mind dazling amount of features they provide, 
 but the readlity is that this tools aren't worth the bits they'r stored on, unless the user is intimately fimiliar with source code of the tool, enough 
 to debug modify improve or customize every and each line of it 
 
