@@ -9,23 +9,25 @@ and that's why while preparing for the cpts when i was faced with the choice bet
 using netcat and doing everything manually like caveman , i decided to just write my own custom c2 from scratch 
 
 this c2 features :
+-
 
-server writen in go
-
-
-
-agent writen in C and go 
-
-C for tools injection using process hollowing [base address relocation]
-
-go for uploading / beaconing
+-server writen in go:
+-
+- handling listeners / sessions
+- basic frontend for managment
 
 
+-
 
-needless to say this is still in early stages but it serve as malluable/modular C2 skeleton to improve upon 
+-agent writen in C and go :
+-
+C :  for tools injection using process hollowing [base address relocation]
+
+go : for uploading / beaconing
 
 
 
+-needless to say this is still in early stages but it serve as malluable/modular C2 skeleton to improve upon 
 -
 -
 -
