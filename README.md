@@ -8,6 +8,9 @@ to debug modify improve or customize every and each line of it
 and that's why while preparing for the cpts when i was faced with the choice between swallwing my pride and using a prebuilt framework or going through it only
 using netcat and doing everything manually like caveman , i decided to just write my own custom c2 from scratch 
 
+-
+
+
 this c2 features :
 -
 
