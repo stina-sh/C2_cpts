@@ -3,7 +3,7 @@ a minimal C2 implementation for taking the CPTS exam
 
 we often hear about the latest shiny new C2 framework weather it is covnant mythic or havoc and are impressed with the mind dazling amount of features they provide, 
 but the reality is that this tools aren't worth the bits they'r stored on, unless the user is intimately fimiliar with the source code of the tool, enough 
-to debug modify improve or customize every and each line of it 
+to debug modify improve or customize each and every line of it 
 
 and that's why while preparing for the cpts when i was faced with the choice between swallwing my pride to use a prebuilt framework or go through it only
 using netcat and doing everything manually like a caveman :D , i decided to just write my own custom c2 from scratch (;
